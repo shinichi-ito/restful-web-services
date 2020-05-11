@@ -1,11 +1,16 @@
 package com.in28minutes.restfulwebservices.user;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class User {
     private Integer id;
+
+    @Size(min=2, message = "Name should have atleast 2 characters")
     private String name;
-    private Date virthDate;
+    @Past
+    private Date birthDate;
 
     public Integer getId() {
         return id;
@@ -27,17 +32,17 @@ public class User {
     }
 
     public Date getVirthDate() {
-        return virthDate;
+        return birthDate;
     }
 
     public void setVirthDate(Date virthDate) {
-        this.virthDate = virthDate;
+        this.birthDate = virthDate;
     }
 
     public User(Integer id, String name, Date virthDate) {
         this.id = id;
         this.name = name;
-        this.virthDate = virthDate;
+        this.birthDate = virthDate;
     }
 
 
